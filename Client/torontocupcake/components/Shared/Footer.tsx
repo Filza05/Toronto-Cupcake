@@ -4,6 +4,8 @@ import React from 'react'
 function Footer() {
   return (
     <div>
+      <hr className='border-b-8 border-[#CCAFAF]'></hr>
+
       <footer className="bg-[#A87676] h-full">
         <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
           <span className="text-sm text-[#FFD0D0] sm:text-center">© 2024 <p className="hover:underline">FSSM™</p>. All Rights Reserved.
