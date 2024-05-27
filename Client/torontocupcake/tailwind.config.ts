@@ -8,10 +8,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      fontFamily: {
+        Satisfy: ["Satisfy"],
+        edu: ['"Edu TAS Beginner"', 'cursive'],
+        pacifico: ['Pacifico', 'cursive'],
+        marker: ["Permanent Marker"],
+        lobster: ["Lobster Two"],
+        itim: ["Itim"],
+        fredoka: ["Fredoka"],
+        averia: ["Averia Serif Libre"]
       },
     },
   },
