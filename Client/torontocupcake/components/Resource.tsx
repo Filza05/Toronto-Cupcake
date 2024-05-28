@@ -7,7 +7,7 @@ function Resource() {
         <div>
             {resources.map(resource => {
                 return (
-                    <section>
+                    <section key={resource.resourceName}>
                         <h2 className='text-[#A10035] font-medium text-3xl md:text-4xl text-center mt-4 font-averia p-5 bg-[#FFB5B5]'>{resource.resourceName}</h2>
                         <div className='md:flex gap-14 p-4'>
                             <Image src={resource.imgPath} alt={resource.resourceName} width={250} height={100}

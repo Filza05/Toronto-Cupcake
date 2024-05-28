@@ -2,6 +2,7 @@ import Footer from "@/components/Shared/Footer"
 import Navbar from "@/components/Shared/Navbar"
 import '../app/globals.css'
 import DateSection from "@/components/Shared/DateSection"
+import Breadcrumbs from "@/components/Shared/Breadcrumbs"
 
 export const metadata = {
   title: 'Toronto Cupcake',
@@ -18,6 +19,7 @@ export default function RootLayout({
       <body className="bg-[#FFD0D0]">
           <Navbar />
           <DateSection />
+          <Breadcrumbs />
           <main>{children}</main>
           <Footer />
       </body>

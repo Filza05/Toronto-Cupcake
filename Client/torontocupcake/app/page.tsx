@@ -3,8 +3,7 @@ function page() {
 
   return (
     <div className="bg-[#FFD0D0]">
-
-      <section className="flex flex-col lg:flex-row items-center bg-[#FFD0D0]">
+      <section className="flex flex-col lg:flex-row items-center">
         <img src="/assets/Cupcakes-Main.jpg" alt="Main Page Cupcakes Image" className="w-screen h-full rounded-none my-6 lg:rounded-full lg:w-1/2 lg:h-full" />
 
         <div className="flex flex-col gap-5 p-10 justify-center">
