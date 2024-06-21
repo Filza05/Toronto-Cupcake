@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
 const ContactUs: React.FC = () => {
@@ -11,23 +11,25 @@ const ContactUs: React.FC = () => {
 
     const [formData, setFormData] = useState(initialFormState);
 
+    useEffect(() => {
+        setFormData(initialFormState);
+    }, []); 
+
     const handleClick = (): void => {
         if (formData.name.trim() !== '' && formData.message.trim() !== '') {
-            // Submit logic here (mocking submission for demonstration)
             console.log('Form submitted:', formData);
-            setFormData(initialFormState);
             toast.success('Message sent successfully!', {
-              position: 'top-right',
-              autoClose: 3000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
+                position: 'top-right',
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
             });
-          } else {
+        } else {
             alert('Cannot submit: Fields are empty');
-          }
+        }
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -36,7 +38,7 @@ const ContactUs: React.FC = () => {
             ...formData,
             [name]: value,
         });
-    };
+    }
 
     const isFormValid = formData.name.trim() !== '' && formData.message.trim() !== '';
 
@@ -51,13 +53,13 @@ const ContactUs: React.FC = () => {
                                     className="block rounded-lg shadow-lg px-6 py-12 md:px-12 lg:mr-0"
                                     style={{ background: 'hsla(0, 0%, 100%, 0.85)', backdropFilter: 'blur(10px)' }}
                                 >
-                                    <form method='POST' action="https://getform.io/f/navvonqa" className='flex flex-col max-w-[600px] w-full'>
+                                    <form action="https://formspree.io/f/mldrrdpy" method='POST' className='flex flex-col max-w-[600px] w-full'>
                                         <div className='pb-8'>
                                             <p className='text-4xl font-bold inline border-b-4 border-[#D14D72] text-[#3D0C11]'>Contact Us</p>
                                             <p className='text-[#3D0C11] font-medium text-lg py-4'>Submit the form below or shoot us an email - <a href='mailto:inquiry@torontocupcake.com' className='text-xl text-[#D14D72] hover:text-[#3D0C11] underline'>inquiry@torontocupcake.com</a></p>
                                         </div>
-                                        <input value={formData.name} onChange={handleChange} className='border-b-2 border-[#3D0C11] p-2 rounded-md' type="text" placeholder='Your Name' name='name' />
-                                        <textarea value={formData.message} onChange={handleChange} className='border-b-2 border-[#3D0C11] my-4 p-2 rounded-md' name="message" rows={10} placeholder='Your Message'></textarea>
+                                        <input value={formData.name} onChange={handleChange} className='border-b-2 border-[#3D0C11] p-2 rounded-md' type="text" placeholder='Your Name' name='name' required/>
+                                        <textarea value={formData.message} onChange={handleChange} className='border-b-2 border-[#3D0C11] my-4 p-2 rounded-md' name="message" rows={10} placeholder='Your Message' required></textarea>
                                         <button
                                             onClick={handleClick}
                                             disabled={!isFormValid}
