@@ -19,11 +19,11 @@ function DateSection() {
     }, []);
 
     return (
-        <div className="flex justify-center items-center">
-            <section className="w-screen lg:w-3/4 flex flex-col items-center justify-center py-6 bg-[#CA8787] rounded-t-lg shadow-md shadow-[#A87676] font-fredoka">
-                <h1 className="text-[#FFDDCC] font-medium text-2xl cursor-default font-Gluten">{currentDate}</h1>
-                <h2 className="text-[#FFDDCC] font-medium text-lg flex gap-4 cursor-default font-Luxurious">Check out our new
-                    <Link className="underline text-[#F5EEE6] duration-300 hover:scale-110" href="/Corporate">Corporate event logo cupcakes</Link>
+        <div className="flex justify-center items-center mt-40">
+            <section className="w-screen lg:w-3/4 flex flex-col items-center justify-center py-6 rounded-t-lg shadow-md shadow-[#84af9b] font-fredoka">
+                <h1 className="text-[#3D0C11] font-medium text-2xl cursor-default font-Gluten">📅 {currentDate}</h1>
+                <h2 className="text-[#3D0C11] font-medium text-lg flex gap-4 cursor-default font-Luxurious">Check out our new
+                    <Link className="underline text-[#A87676] duration-100 hover:scale-[1.06]" href="/Corporate">Corporate event logo cupcakes</Link>
                 </h2>
             </section>
         </div>

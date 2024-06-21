@@ -16,7 +16,8 @@ const config: Config = {
         lobster: ["Lobster Two"],
         itim: ["Itim"],
         fredoka: ["Fredoka"],
-        averia: ["Averia Serif Libre"]
+        averia: ["Averia Serif Libre"],
+        marcellus: ["Marcellus"]
       },
     },
   },
