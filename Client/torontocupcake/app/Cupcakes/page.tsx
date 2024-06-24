@@ -1,9 +1,43 @@
+"use client"
 import ProductCard from '@/components/ProductCard'
 import SearchBar from '@/components/SearchBar'
 import BackToTop from '@/components/Shared/BackToTop'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { data } from '@/temporary data/cupcakes'
+import { AddressType, CupcakeCategoryType, CupcakeType } from '@/types/types'
 
 function page() {
+  const [cupcakes, setCupcakes] = useState<CupcakeType[]>([]); 
+
+  const [filteredCupcakes, setFilteredCupcakes] = useState<CupcakeType[]>([]); // State to hold filtered cupcakes
+
+  const [searchQuery, setSearchQuery] = useState(''); // State to hold the search query
+  const [searchType, setSearchType] = useState<CupcakeCategoryType>("All")
+
+  useEffect(() => {
+    //  Later fetch the cupcakes from api
+    setCupcakes(data)
+  }, [])
+
+  useEffect(() => {
+    console.log("use effect ran")
+
+    const filteredBySearch = cupcakes.filter(cupcake =>
+      cupcake.name.toLowerCase().includes(searchQuery.toLowerCase()))
+    
+    var filteredWithType
+    if(searchType == "All"){
+      filteredWithType = filteredBySearch
+      console.log("inside if")
+    }
+    else{
+      filteredWithType = filteredBySearch.filter(cupcake => 
+        cupcake.type.toLowerCase().includes(searchType.toLowerCase()))
+    }
+
+    setFilteredCupcakes(filteredWithType)
+  }, [cupcakes, searchType, searchQuery])
+  
   return (
     <div>
       <div className="text-center p-10 font-averia">
@@ -11,18 +45,14 @@ function page() {
         <h1 className="text-3xl">Discover Our Gourmet Cupcakes</h1>
       </div>
 
-      <SearchBar />
+      <SearchBar setSearchQuery={setSearchQuery} setSearchType = {setSearchType} searchType = {searchType}/>
 
       <section id="Products"
+
         className="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-20">
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+        {filteredCupcakes.map((cupcake) => (
+          <ProductCard key={cupcake.id} Cupcake={cupcake} />
+        ))}
       </section>
 
       <BackToTop />

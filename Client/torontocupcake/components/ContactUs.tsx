@@ -7,16 +7,26 @@ const ContactUs: React.FC = () => {
     const initialFormState = {
         name: '',
         message: '',
+        email: '',
     };
 
     const [formData, setFormData] = useState(initialFormState);
+    const [isFormValid, setIsFormValid] = useState(false);
+    const [isEmailValid, setIsEmailValid] = useState(false);
+
 
     useEffect(() => {
         setFormData(initialFormState);
-    }, []); 
+    }, []);
+
+    const validateForm = (data: typeof initialFormState) => {
+        const isFormFilled = data.name.trim() !== '' && data.message.trim() !== '';
+        const isEmailValid = validateEmail(data.email);
+        setIsFormValid(isFormFilled && isEmailValid);
+    };
 
     const handleClick = (): void => {
-        if (formData.name.trim() !== '' && formData.message.trim() !== '') {
+        if (isFormValid) {
             console.log('Form submitted:', formData);
             toast.success('Message sent successfully!', {
                 position: 'top-right',
@@ -28,7 +38,7 @@ const ContactUs: React.FC = () => {
                 progress: undefined,
             });
         } else {
-            alert('Cannot submit: Fields are empty');
+            alert('Cannot submit: Fields are empty or email is invalid');
         }
     };
 
@@ -38,32 +48,61 @@ const ContactUs: React.FC = () => {
             ...formData,
             [name]: value,
         });
-    }
+        validateForm({ ...formData, [name]: value });
+    };
 
-    const isFormValid = formData.name.trim() !== '' && formData.message.trim() !== '';
+    const validateEmail = (email: string): boolean => {
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        return emailRegex.test(email);
+    };
 
+    const handleEmailBlur = () => {
+        const isValid = validateEmail(formData.email);
+        setIsEmailValid(isValid);
+        if (!isValid) {
+            toast.error('Please enter a valid email address.', {
+                position: 'top-right',
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+    };
     return (
         <div className="container my-24 px-6 mx-auto" id='contact-us'>
             <section className="text-gray-800 text-center">
                 <div className="px-6 py-12 md:px-12">
                     <div className="container mx-auto xl:px-32">
-                        <div className="grid gap-12 lg:grid-cols-2 items-start">
+                        <div className="grid gap-6 lg:grid-cols-2 items-start">
                             <div className="md:mt-12 lg:mt-0 mb-12 lg:mb-0">
                                 <div
                                     className="block rounded-lg shadow-lg px-6 py-12 md:px-12 lg:mr-0"
                                     style={{ background: 'hsla(0, 0%, 100%, 0.85)', backdropFilter: 'blur(10px)' }}
                                 >
-                                    <form action="https://formspree.io/f/mldrrdpy" method='POST' className='flex flex-col max-w-[600px] w-full'>
+                                    <form action="https://formspree.io/f/mldrrdpy" method='POST' className='flex flex-col max-w-[600px] w-full font-averia'>
                                         <div className='pb-8'>
                                             <p className='text-4xl font-bold inline border-b-4 border-[#D14D72] text-[#3D0C11]'>Contact Us</p>
                                             <p className='text-[#3D0C11] font-medium text-lg py-4'>Submit the form below or shoot us an email - <a href='mailto:inquiry@torontocupcake.com' className='text-xl text-[#D14D72] hover:text-[#3D0C11] underline'>inquiry@torontocupcake.com</a></p>
                                         </div>
-                                        <input value={formData.name} onChange={handleChange} className='border-b-2 border-[#3D0C11] p-2 rounded-md' type="text" placeholder='Your Name' name='name' required/>
+                                        <input value={formData.name} onChange={handleChange} className='border-b-2 border-[#3D0C11] p-2 rounded-md' type="text" placeholder='Your Name' name='name' required />
+                                        <input
+                                            value={formData.email}
+                                            onChange={handleChange}
+                                            onBlur={handleEmailBlur}
+                                            className='border-b-2 border-[#3D0C11] p-2 my-4 rounded-md'
+                                            type="email"
+                                            placeholder='Your Email'
+                                            name='email'
+                                            required
+                                        />
                                         <textarea value={formData.message} onChange={handleChange} className='border-b-2 border-[#3D0C11] my-4 p-2 rounded-md' name="message" rows={10} placeholder='Your Message' required></textarea>
                                         <button
                                             onClick={handleClick}
                                             disabled={!isFormValid}
-                                            className={`mt-8 mx-auto flex items-center text-white font-medium bg-[#D14D72] group border-2 px-6 py-3 my-2 hover:bg-[#c9c8aa] hover:text-[#3D0C11] hover:border-[#3D0C11] font-marcellus text-xl active:bg-white ${!isFormValid && 'opacity-50 cursor-not-allowed'}`}
+                                            className={`mt-8 mx-auto flex items-center text-white font-medium bg-[#D14D72] group border-2 px-6 py-3 my-2 hover:bg-[#c9c8aa] hover:text-[#3D0C11] hover:border-[#3D0C11] font-averia text-xl active:bg-white ${!isFormValid && 'opacity-50 cursor-not-allowed'}`}
                                         >
                                             Send Message
                                             <span className='group-hover:translate-x-2 duration-300'>

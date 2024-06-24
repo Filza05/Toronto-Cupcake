@@ -1,16 +1,24 @@
 import React from 'react';
 import Dropdown from './Dropdown';
+import { CupcakeCategoryType } from '@/types/types';
 
-function SearchBar() {
+interface SearchBarProps {
+    setSearchQuery: React.Dispatch<React.SetStateAction<string>>
+    setSearchType: React.Dispatch<React.SetStateAction<CupcakeCategoryType>>
+    searchType: CupcakeCategoryType
+}
+
+const SearchBar: React.FC<SearchBarProps> = ({setSearchQuery, setSearchType, searchType}) => {
     return (
-        <div className='flex justify-center items-center gap-4 py-10 sm:px-64 sm:font-averia sm:text-xl sm:font-semibold'>
-            <Dropdown />
-            <div className="flex justify-center flex-1"> {/* Use flex-1 to allow the input to stretch */}
+        <div className='flex justify-center items-center gap-4 py-10 px-3 sm:px-64 font-averia sm:text-xl sm:font-semibold'>
+            <Dropdown setSearchType = {setSearchType} searchType = {searchType}/>
+            <div className="flex justify-center flex-1"> 
                 <input
                     className='flex-grow px-5 py-3 placeholder-gray-500 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-[#3D0C11] focus:ring-1 focus:ring-[#3D0C11]'
                     placeholder='Search for Cupcakes'
+                    onChange={(event) => setSearchQuery(event.target.value)}
                 />
-                <button
+                {/* <button
                     className="px-6 py-2.5 bg-[#D14D72] text-white font-medium uppercase rounded shadow-md hover:bg-[#3D0C11] active:bg-white active:text-[#3D0C11] transition duration-150 items-center flex gap-2"
                     type="button"
                 >
@@ -30,7 +38,7 @@ function SearchBar() {
                         ></path>
                     </svg>
                     Search
-                </button>
+                </button> */}
             </div>
         </div>
     );

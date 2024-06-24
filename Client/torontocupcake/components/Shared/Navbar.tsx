@@ -122,10 +122,12 @@ function Navbar() {
                     <li>
                         <motion.div whileHover={{ scale: 1.07 }}>
                             <Link href="/Cart" className={`flex gap-2 items-center active:text-white ${getMobileLinkClass('/Cart')}`}>
-                                <svg className='w-10 h-10 text-2xl font-medium' aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312" />
-                                </svg>
-                                <p className='py-6 text-2xl font-medium'>View Cart</p>
+                                <button className='py-6 text-2xl font-medium flex gap-3 justify-center items-center'>
+                                    <svg className='w-10 h-10 text-2xl font-medium' aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312" />
+                                    </svg>
+                                    View Cart
+                                </button>
                             </Link>
                         </motion.div>
                     </li>

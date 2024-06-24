@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body  className='bg-white'>
         <Navbar />
         <DateSection />
         <ToastContainer
@@ -32,6 +32,7 @@ export default function RootLayout({
           draggable
           pauseOnHover
         />
+
         <main>{children}</main>
         <Footer />
       </body>
