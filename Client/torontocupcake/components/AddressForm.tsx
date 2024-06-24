@@ -98,10 +98,10 @@ const AddressForm: React.FC<AddressFormProps> = ({ setAddressData, addressData, 
                         </div>
                     </div>
                     <button
-                    className='text-white mx-auto w-1/2 text-xl font-semibold mt-20 bg-[#D14D72] group border-2 rounded-full font-averia px-10 py-4 flex justify-between gap-2 items-center hover:bg-[#c9c8aa] hover:text-[#3D0C11] hover:border-[#3D0C11] active:bg-white'>
+                    className='text-white mx-auto w-1/2 text-lg md:text-xl font-semibold mt-20 bg-[#D14D72] group border-2 rounded-full font-averia px-10 py-4 flex justify-between gap-2 items-center active:bg-white'>
                         Continue
                     <span className='group-hover:translate-x-2 duration-300'>
-                        <svg className="w-6 h-6 text-white group-hover:text-[#3D0C11]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                     <path fillRule="evenodd" d="M3 4a1 1 0 0 0-.822 1.57L6.632 12l-4.454 6.43A1 1 0 0 0 3 20h13.153a1 1 0 0 0 .822-.43l4.847-7a1 1 0 0 0 0-1.14l-4.847-7a1 1 0 0 0-.822-.43H3Z" clipRule="evenodd" />
                 </svg>
                 </span>

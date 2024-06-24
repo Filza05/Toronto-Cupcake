@@ -25,7 +25,7 @@ function Navbar() {
 
     return (
         <>
-            <nav className='fixed top-0 left-0 right-0 bg-[#c9c8aa] z-50 md:px-10 px-2 py-3 h-fit flex justify-between items-center shadow-md'>
+            <nav className='fixed top-0 left-0 right-0 bg-[#FAFAFA] z-50 md:px-10 px-2 py-3 h-fit flex justify-between items-center shadow-md'>
                 <Link href='/' className='flex items-center gap-4 text-[#A87676]'>
                     <Image src='/assets/Logo.png' alt='Logo' width={80} height={80} />
                     <h1 className='font-bold text-[#3D0C11] text-4xl font-Satisfy'>Toronto Cupcake</h1>
@@ -33,28 +33,28 @@ function Navbar() {
 
                 {/* Desktop menu */}
                 <ul className='hidden lg:flex gap-5 font-averia'>
-                    <li className={`text-2xl font-medium hover:text-[#D14D72] active:text-white ${getLinkClass('/')}`}>
+                    <li className={`text-2xl font-medium active:text-white ${getLinkClass('/')}`}>
                         <Link href="/">
                             <motion.div whileHover={{ scale: 1.07 }}>
                                 Home
                             </motion.div>
                         </Link>
                     </li>
-                    <li className={`text-2xl font-medium hover:text-[#D14D72] active:text-white ${getLinkClass('/Cupcakes')}`}>
+                    <li className={`text-2xl font-medium active:text-white ${getLinkClass('/Cupcakes')}`}>
                         <Link href="/Cupcakes">
                             <motion.div whileHover={{ scale: 1.07 }}>
                                 Cupcakes
                             </motion.div>
                         </Link>
                     </li>
-                    <li className={`text-2xl font-medium hover:text-[#D14D72] active:text-white ${getLinkClass('/Employment')}`}>
+                    <li className={`text-2xl font-medium active:text-white ${getLinkClass('/Employment')}`}>
                         <Link href="/Employment">
                             <motion.div whileHover={{ scale: 1.07 }}>
                                 Employment
                             </motion.div>
                         </Link>
                     </li>
-                    <li className={`text-2xl font-medium hover:text-[#D14D72] active:text-white ${getLinkClass('/Occasions')}`}>
+                    <li className={`text-2xl font-medium active:text-white ${getLinkClass('/Occasions')}`}>
                         <Link href="/Occasions">
                             <motion.div whileHover={{ scale: 1.07 }}>
                                 Occasions
@@ -62,7 +62,7 @@ function Navbar() {
                         </Link>
                     </li>
                     <li>
-                        <Link href="/Cart" className={`flex flex-col items-center hover:text-[#D14D72] active:text-white ${getLinkClass('/Cart')}`}>
+                        <Link href="/Cart" className={`flex flex-col items-center active:text-white ${getLinkClass('/Cart')}`}>
                             <motion.div whileHover={{ scale: 1.07 }}>
                                 <svg className='w-10 h-10 text-2xl font-medium' aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312" />
@@ -121,7 +121,7 @@ function Navbar() {
                     </li>
                     <li>
                         <motion.div whileHover={{ scale: 1.07 }}>
-                            <Link href="/Cart" className={`flex gap-2 items-center active:text-white ${getMobileLinkClass('/Cart')}`}>
+                            <Link href="/Cart" onClick={handleClick} className={`flex gap-2 items-center active:text-white ${getMobileLinkClass('/Cart')}`}>
                                 <button className='py-6 text-2xl font-medium flex gap-3 justify-center items-center'>
                                     <svg className='w-10 h-10 text-2xl font-medium' aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                         <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312" />

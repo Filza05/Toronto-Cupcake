@@ -38,7 +38,7 @@ const ContactUs: React.FC = () => {
                 progress: undefined,
             });
         } else {
-            alert('Cannot submit: Fields are empty or email is invalid');
+            // alert('Cannot submit: Fields are empty or email is invalid');
         }
     };
 
@@ -87,7 +87,7 @@ const ContactUs: React.FC = () => {
                                             <p className='text-4xl font-bold inline border-b-4 border-[#D14D72] text-[#3D0C11]'>Contact Us</p>
                                             <p className='text-[#3D0C11] font-medium text-lg py-4'>Submit the form below or shoot us an email - <a href='mailto:inquiry@torontocupcake.com' className='text-xl text-[#D14D72] hover:text-[#3D0C11] underline'>inquiry@torontocupcake.com</a></p>
                                         </div>
-                                        <input value={formData.name} onChange={handleChange} className='border-b-2 border-[#3D0C11] p-2 rounded-md' type="text" placeholder='Your Name' name='name' required />
+                                        <input value={formData.name} onChange={handleChange} className='border-b-2 border-[#3D0C11] p-2 rounded-md' type="text" placeholder='Your Name' name='name' title='Please Enter Your Name' required />
                                         <input
                                             value={formData.email}
                                             onChange={handleChange}
@@ -96,23 +96,24 @@ const ContactUs: React.FC = () => {
                                             type="email"
                                             placeholder='Your Email'
                                             name='email'
+                                            title='Please Enter Your Email'
                                             required
                                         />
-                                        <textarea value={formData.message} onChange={handleChange} className='border-b-2 border-[#3D0C11] my-4 p-2 rounded-md' name="message" rows={10} placeholder='Your Message' required></textarea>
+                                        <textarea value={formData.message} onChange={handleChange} className='border-b-2 border-[#3D0C11] my-4 p-2 rounded-md' name="message" rows={10} placeholder='Your Message' title='Please Enter Your Message' required></textarea>
                                         <button
                                             onClick={handleClick}
-                                            disabled={!isFormValid}
-                                            className={`mt-8 mx-auto flex items-center text-white font-medium bg-[#D14D72] group border-2 px-6 py-3 my-2 hover:bg-[#c9c8aa] hover:text-[#3D0C11] hover:border-[#3D0C11] font-averia text-xl active:bg-white ${!isFormValid && 'opacity-50 cursor-not-allowed'}`}
+                                            // disabled={!isFormValid}
+                                            className={`mt-8 mx-auto text-lg md:text-xl text-white font-semibold bg-[#D14D72] group px-6 py-3 my-2 flex justify-between gap-2 items-center active:bg-white rounded-full`}
                                         >
                                             Send Message
                                             <span className='group-hover:translate-x-2 duration-300'>
-                                                <svg className="w-8 h-8 ml-1 text-white group-hover:text-[#3D0C11]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                                <svg className="w-8 h-8 ml-1 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 12H5m14 0-4 4m4-4-4-4" />
                                                 </svg>
                                             </span>
                                         </button>
-                                        <div className='m-auto text-red-950 text-md'>
-                                            <p>Please Fill the Above Fields to Submit Message</p>
+                                        <div className='m-auto text-red-800 text-lg font-medium'>
+                                            <p>Please Fill the Above Fields to Send Message</p>
                                         </div>
                                     </form>
                                 </div>

@@ -3,13 +3,13 @@ import FadeFromOutofScreen from './Shared/FadeFromOutofScreen'
 
 function Testimonials() {
     return (
-        <div className='bg-[#fcb7ca]'>
+        <div className='bg-[#FFB4C2]'>
             <section className="my-8">
                 <div className="container mx-auto flex flex-col items-center pb-6 mb-4 md:p-10 md:px-12">
                     <h1 className="text-4xl font-semibold leading-none text-center font-averia text-[#3D0C11]">What our customers are saying about us</h1>
                 </div>
                 <div className="container mx-auto grid grid-cols-1 gap-8 lg:gap-10 md:px-10 md:pb-10 lg:grid-cols-2 p-5">
-                    <div className="flex flex-col items-center shadow-md shadow-[#3D0C11] bg-white rounded-md p-5 text-xl">
+                    <div className="flex flex-col items-center shadow-md shadow-[#3D0C11] bg-white rounded-md p-5 text-xl font-medium">
                             <div className="relative text-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" className="absolute top-0 left-0 w-6 h-6 dark:text-gray-300">
                                     <path d="M232,246.857V16H16V416H54.4ZM48,48H200V233.143L48,377.905Z"></path>
@@ -25,7 +25,7 @@ function Testimonials() {
                         <span className="w-12 h-1 my-2 rounded-lg"></span>
                         <p>Leroy Jenkins</p>
                     </div>
-                        <div className="flex flex-col items-center shadow-md shadow-[#3D0C11] bg-white rounded-md p-5 text-xl">
+                        <div className="flex flex-col items-center shadow-md shadow-[#3D0C11] bg-white rounded-md p-5 text-xl font-medium">
                             <div className="relative text-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="absolute top-0 left-0 w-6 h-6 dark:text-gray-300">
                                     <path fill="currentColor" d="M232,246.857V16H16V416H54.4ZM48,48H200V233.143L48,377.905Z"></path>

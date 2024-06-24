@@ -40,7 +40,7 @@ function DateSection() {
 
     return (
         <div className="flex justify-center items-center mt-40 font-averia">
-            <section className="w-screen lg:w-3/4 flex flex-col items-center justify-center py-6 rounded-t-lg shadow-md shadow-[#84af9b]">
+            <section className="w-screen lg:w-3/4 flex flex-col items-center justify-center py-6 rounded-t-lg shadow-md shadow-[#3D0C11]">
                 <h1 className="text-[#3D0C11] font-medium text-2xl cursor-default">📅 {currentDate}</h1>
                 <h2 className="text-[#3D0C11] font-medium text-xl cursor-default mt-3">🕒 {currentTime}</h2>
             </section>

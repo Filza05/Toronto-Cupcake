@@ -27,12 +27,12 @@ function page() {
             Our cupcakes are baked daily using the finest ingredients. 🎀💝
           </p>
 
-          <div className='font-averia text-xl md:text-2xl flex gap-5'>
+          <div className='font-averia text-lg md:text-xl flex gap-5'>
             <Link href="/Cupcakes">
-              <button className='text-white font-semibold bg-[#D14D72] group border-2 px-6 py-3 my-2 flex justify-between gap-2 items-center hover:bg-[#c9c8aa] hover:text-[#3D0C11] hover:border-[#3D0C11] active:bg-white'>
+              <button className='text-white font-semibold bg-[#D14D72] group px-6 py-3 my-2 flex justify-between gap-2 items-center active:bg-white rounded-full'>
                 Our Cupcakes
-                <span className='group-hover:-rotate-90 duration-300'>
-                  <svg className="w-6 h-6 text-white group-hover:text-[#3D0C11]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <span className='group-hover:translate-x-2 duration-300'>
+                  <svg className="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                     <path fillRule="evenodd" d="M3 4a1 1 0 0 0-.822 1.57L6.632 12l-4.454 6.43A1 1 0 0 0 3 20h13.153a1 1 0 0 0 .822-.43l4.847-7a1 1 0 0 0 0-1.14l-4.847-7a1 1 0 0 0-.822-.43H3Z" clipRule="evenodd" />
                   </svg>
                 </span>
@@ -40,7 +40,7 @@ function page() {
             </Link>
 
             <ScrollLink to="contact-us" smooth={true} duration={800}>
-              <button className='text-[#3D0C11] border-[#3D0C11] font-semibold bg-[#c9c8aa] group border-2 px-6 py-3 my-2 flex justify-between gap-2 items-center hover:bg-[#D14D72] hover:text-white hover:border-white active:bg-[#3D0C11]'>
+              <button className='text-[#3D0C11] font-semibold bg-[#c9c8aa] group px-6 py-3 my-2 flex justify-between gap-2 items-center hover:bg-[#D14D72] hover:text-white active:bg-[#3D0C11] rounded-full'>
                 Contact Us
                 <span className='group-hover:rotate-90 duration-300'>
                   <svg className="w-6 h-6 text-[#3D0C11] group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">

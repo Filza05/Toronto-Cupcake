@@ -5,7 +5,7 @@ import Image from 'next/image'
 function Footer() {
   return (
     <div>
-      <footer className="bg-[#c9c8aa] min-h-36">
+      <footer className="bg-[#FAFAFA] min-h-36">
         <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
           <span className="text-xl text-[#3D0C11] sm:text-center">© 2024 <p className="hover:underline">FSSM™</p>. All Rights Reserved.
           </span>

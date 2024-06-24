@@ -2,7 +2,7 @@
 import AddressForm from '@/components/AddressForm'
 import CartItem from '@/components/CartItem'
 import { AddressType, CartItemType } from '@/types/types'
-import { initializeCart } from '@/utils/cartHelperFuncs'
+import { initializeCart, removeFromCart } from '@/utils/cartHelperFuncs'
 import { calculateDeliveryCharge, getAddressFromLocalStorage, saveAddressToLocalStorage } from '@/utils/helperFunctions'
 import React, { useState, useEffect } from 'react'
 import { toast } from 'react-toastify'
@@ -22,8 +22,8 @@ export default function page() {
     const [totalDeliveryCharge, setTotalDeliveryCharge] = useState<number>(0);
 
     const handleDeleteItem = (itemId: string) => {
+        removeFromCart(itemId)
         setCartItems(prevItems => prevItems.filter(item => item.id !== itemId));
-
     };
 
     const handleContinueToPayment = () => {
@@ -142,11 +142,11 @@ export default function page() {
                         <h6 className="font-manrope font-medium text-3xl leading-9 text-[#D14D72]">${(totalDeliveryCharge + subTotal).toFixed(2)}</h6>
                     </div>
                 </div>
-                <div className="flex items-center flex-col sm:flex-row justify-center gap-3 mt-8">
+                <div className="flex items-center flex-col sm:flex-row justify-center gap-3 mt-8 text-lg md:text-xl">
                     <button 
                         onClick={handleContinueToPayment}
-                        className="rounded-full py-3 w-full max-w-[280px] font-medium group font-averia group flex items-center text-[#3D0C11] bg-[#c9c8aa] justify-center hover:bg-[#3D0C11] hover:text-white active:bg-white active:text-[#3D0C11]">
-                        <span className="px-2 font-semibold text-xl leading-8">Pay on Delivery</span>
+                        className="text-[#3D0C11] font-semibold bg-[#c9c8aa] group px-6 py-3 my-2 flex justify-between gap-2 items-center hover:bg-[#D14D72] hover:text-white active:bg-[#3D0C11] rounded-full">
+                        <span className="px-2 font-semibold leading-8">Pay on Delivery</span>
                         <span className='group-hover:translate-x-2 duration-300 '>
                             <svg className="w-6 h-6 group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m9 5 7 7-7 7" />
@@ -155,10 +155,10 @@ export default function page() {
                     </button>
                     <button
                         onClick={handleContinueToPayment}
-                        className="rounded-full flex items-center text-white font-medium bg-[#D14D72] group border-2 px-6 py-3 hover:bg-[#c9c8aa] hover:text-[#3D0C11] hover:border-[#3D0C11] font-averia text-xl active:bg-white">
+                        className="text-white font-semibold bg-[#D14D72] group px-6 py-3 my-2 flex justify-between gap-2 items-center active:bg-white rounded-full">
                         Continue to Payment
                         <span className='group-hover:translate-x-2 duration-300 '>
-                            <svg className="w-6 h-6 text-white group-hover:text-[#3D0C11]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <svg className="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m9 5 7 7-7 7" />
                             </svg>
                         </span>
